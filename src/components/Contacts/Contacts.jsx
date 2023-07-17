@@ -1,5 +1,5 @@
 import React from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 const Contacts = ({ contactList }) => {
   console.log('contact', contactList);
