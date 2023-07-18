@@ -1,18 +1,14 @@
 import React from 'react';
 // import { nanoid } from 'nanoid';
+import Contact from './Contact/Contact';
 
-const Contacts = ({ contactList }) => {
+const Contacts = ({ contactList, onDeleteContact }) => {
   console.log('contact', contactList);
   //   const contactId = nanoid();
   return (
     <div>
-      <h2>Contacts</h2>
       <ul>
-        {contactList.map(contact => (
-          <li>
-            {contact.name} : {contact.number}
-          </li>
-        ))}
+        <Contact list={contactList} deleteContact={onDeleteContact} />
       </ul>
     </div>
   );
