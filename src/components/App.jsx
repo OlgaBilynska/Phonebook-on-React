@@ -49,12 +49,23 @@ export class App extends React.Component {
   //   );
   // };
 
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
+
     const contactCount = contacts.length;
     const completedContacts = contacts.reduce(
       (total, contact) => (contact ? total + 1 : total),
       0
+    );
+
+    const normalizedFilter = this.state.filter.toLowerCase();
+
+    const visibleContacts = this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
     );
 
     return (
@@ -65,9 +76,10 @@ export class App extends React.Component {
           onContactExist={this.isContactExist}
         />
         <h2>Contacts</h2>
-        <Filter />
+        <Filter value={filter} onChange={this.changeFilter} />
+
         <Contacts
-          contactList={this.state.contacts}
+          contactList={visibleContacts}
           onDeleteContact={this.deleteContact}
         />
         <p>Number of contacts: {contactCount}</p>
