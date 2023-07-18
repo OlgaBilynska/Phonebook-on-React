@@ -16,19 +16,33 @@ export class App extends React.Component {
   };
 
   formSubmitHandler = data => {
-    this.setState(prevState => ({ contacts: [data, ...prevState.contacts] }));
-    console.log('state', this.state.contacts);
+    if (
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === data.name.toLowerCase()
+      )
+    ) {
+      alert(`{data.name} is already in contacts.`);
+    } else {
+      this.setState(prevState => ({ contacts: [data, ...prevState.contacts] }));
+      console.log('state', this.state.contacts);
+    }
   };
-
   // isContactExist = contactName => {
   //   console.log('contactId', contactName);
+  //   if (this.state.contacts.find(contact => contact.name === contactName)) {
+  //     console.log('is already in contacts.');
+  //   } else {
+  //     this.formSubmitHandler();
+  //   }
+  // };
+
   //   this.setState(prevState => ({
-  //     contacts: prevState.contacts.map(
-  //       contact =>
-  //         (contact.name = contactName
-  //           ? alert('is already in contacts.')
-  //           : contact)
-  //     ),
+  //     contacts: prevState.contacts.map(contact => {
+  //       console.log('contact.name :>> ', contact.name);
+  //       return (contact.name === contactName
+  //         ? console.log('is already in contacts.')
+  //         : contact);
+  //     }),
   //   }));
   // };
 
@@ -53,27 +67,36 @@ export class App extends React.Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  getVisibleContacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  countContacts = () => {
+    const { contacts } = this.state;
+    return contacts.reduce(
+      (total, contact) => (contact ? total + 1 : total),
+      0
+    );
+  };
+
   render() {
     const { contacts, filter } = this.state;
 
     const contactCount = contacts.length;
-    const completedContacts = contacts.reduce(
-      (total, contact) => (contact ? total + 1 : total),
-      0
-    );
-
-    const normalizedFilter = this.state.filter.toLowerCase();
-
-    const visibleContacts = this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
+    // const completedContacts = this.countContacts();
+    const visibleContacts = this.getVisibleContacts();
 
     return (
       <div>
         <h1>Phonebook</h1>
         <Form
           onSubmit={this.formSubmitHandler}
-          onContactExist={this.isContactExist}
+          // onContactExist={this.isContactExist}
         />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
@@ -83,7 +106,7 @@ export class App extends React.Component {
           onDeleteContact={this.deleteContact}
         />
         <p>Number of contacts: {contactCount}</p>
-        <p>Completed contacts: {completedContacts}</p>
+        {/* <p>Total contacts: {completedContacts}</p> */}
       </div>
     );
   }

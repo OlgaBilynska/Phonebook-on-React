@@ -21,7 +21,7 @@ class Form extends Component {
     // const contactID = nanoid();
     // const contact = { id: contactID, ...this.state };
     this.props.onSubmit(this.state);
-    this.props.onContactExist(this.state.name);
+    // this.props.onContactExist(this.state.name);
     this.reset();
   };
 
