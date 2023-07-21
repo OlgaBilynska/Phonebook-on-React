@@ -1,40 +1,54 @@
 import React, { Component } from 'react';
+import { Formik, Form, Field } from 'formik';
 import { nanoid } from 'nanoid';
+import styled from '@emotion/styled';
 
-class Form extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+const initialValues = {
+  name: '',
+  number: '',
+};
 
-  nameInputId = nanoid();
-  numberInputId = nanoid();
+const Input = styled(Field)`
+  font-size: 30px;
+`;
 
-  handleChange = e => {
-    const { name, value } = e.currentTarget;
+const Form = () => {
+  //   state = {
+  //     name: '',
+  //     number: '',
+  //   };
 
-    this.setState({ [name]: value });
-  };
+  //   nameInputId = nanoid();
+  //   numberInputId = nanoid();
 
-  handleSubmit = e => {
-    e.preventDefault();
-    // const contactID = nanoid();
-    // const contact = { id: contactID, ...this.state };
-    this.props.onSubmit(this.state);
-    // this.props.onContactExist(this.state.name);
-    this.reset();
-  };
+  //   handleChange = e => {
+  //     const { name, value } = e.currentTarget;
 
-  reset = () => {
-    this.setState({ name: '', number: '' });
-  };
+  //     this.setState({ [name]: value });
+  //   };
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
+  //   handleSubmit = e => {
+  //     e.preventDefault();
+  //     // const contactID = nanoid();
+  //     // const contact = { id: contactID, ...this.state };
+  //     this.props.onSubmit(this.state);
+  //     // this.props.onContactExist(this.state.name);
+  //     this.reset();
+  //   };
+
+  //   reset = () => {
+  //     this.setState({ name: '', number: '' });
+  //   };
+
+  //   render() {
+  //     return (
+
+  return (
+    <Formik initialValues={initialValues}>
+      <Form onSubmit={this.handleSubmit}>
         <label htmlFor={this.nameInputId}>
           Name
-          <input
+          <Input
             value={this.state.name}
             name="name"
             id={this.nameInputId}
@@ -48,7 +62,7 @@ class Form extends Component {
         <br />
         <label htmlFor={this.numberInputId}>
           Number
-          <input
+          <Input
             value={this.state.number}
             name="number"
             id={this.numberInputId}
@@ -61,9 +75,9 @@ class Form extends Component {
         </label>
 
         <button type="submit">Add contact</button>
-      </form>
-    );
-  }
-}
+      </Form>
+    </Formik>
+  );
+};
 
 export default Form;

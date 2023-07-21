@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from './Form/Form';
+import ContactForm from './ContactForm/ContactForm';
 import Contacts from './Contacts/Contacts';
 import Filter from './Filter/Filter';
 
@@ -94,7 +94,7 @@ export class App extends React.Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        <Form
+        <ContactForm
           onSubmit={this.formSubmitHandler}
           // onContactExist={this.isContactExist}
         />
