@@ -1,9 +1,16 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
-import styled from '@emotion/styled';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
+
+import {
+  FormWrapper,
+  Button,
+  Label,
+  ErrorMessageForm,
+  FieldForm,
+} from './ContactForm.styled';
 
 const initialValues = {
   name: '',
@@ -25,11 +32,6 @@ const schema = Yup.object({
     .required('Phone number is required'),
 });
 
-const Input = styled(Field)`
-  font-size: 30px;
-  color: green;
-`;
-
 const ContactForm = ({ onSubmit }) => {
   const inputNameId = nanoid();
   const inputNumberId = nanoid();
@@ -47,10 +49,10 @@ const ContactForm = ({ onSubmit }) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <label htmlFor={inputNameId}>
+      <FormWrapper>
+        <Label htmlFor={inputNameId}>
           Name
-          <Input
+          <FieldForm
             name="name"
             id={inputNameId}
             // onChange={this.handleChange}
@@ -58,12 +60,12 @@ const ContactForm = ({ onSubmit }) => {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-          <ErrorMessage name="name" component="div" />
-        </label>
+          <ErrorMessageForm name="name" component="div" />
+        </Label>
         <br />
-        <label htmlFor={inputNumberId}>
+        <Label htmlFor={inputNumberId}>
           Number
-          <Input
+          <FieldForm
             // value={this.state.number}
             name="number"
             id={inputNumberId}
@@ -73,11 +75,11 @@ const ContactForm = ({ onSubmit }) => {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <ErrorMessage name="number" component="div" />
-        </label>
+          <ErrorMessageForm name="number" component="div" />
+        </Label>
 
-        <button type="submit">Add contact</button>
-      </Form>
+        <Button type="submit">Add contact</Button>
+      </FormWrapper>
     </Formik>
   );
 };
