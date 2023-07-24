@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import { nanoid } from 'nanoid';
 import Contact from './Contact/Contact';
 
@@ -12,6 +13,11 @@ const Contacts = ({ contactList, onDeleteContact }) => {
       </ul>
     </div>
   );
+};
+
+Contacts.propTypes = {
+  contactList: PropTypes.arrayOf(PropTypes.shape),
+  onDeleteContact: PropTypes.func,
 };
 
 export default Contacts;

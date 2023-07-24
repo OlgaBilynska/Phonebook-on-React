@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Notiflix from 'notiflix';
 import ContactForm from './ContactForm/ContactForm';
 import Contacts from './Contacts/Contacts';
 import Filter from './Filter/Filter';
@@ -21,10 +21,9 @@ export class App extends React.Component {
         contact => contact.name.toLowerCase() === data.name.toLowerCase()
       )
     ) {
-      alert(`{data.name} is already in contacts.`);
+      Notiflix.Notify.failure(`${data.name} is already in contacts.`);
     } else {
       this.setState(prevState => ({ contacts: [data, ...prevState.contacts] }));
-      console.log('state', this.state.contacts);
     }
   };
   // isContactExist = contactName => {
