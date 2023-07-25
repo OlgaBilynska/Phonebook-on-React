@@ -20,7 +20,7 @@ export const Label = styled.label`
 
   &:hover,
   &:focus {
-    color: white;
+    color: var(--accent);
   }
 `;
 

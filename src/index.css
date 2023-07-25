@@ -1,10 +1,10 @@
 @import-normalize; /* bring in normalize.css styles */
 
 :root {
-  --background: #a1ccd1;
-  --section: #f4f2de;
-  --accent: #e9b384;
-  --text: #7c9d96;
+  --background: #3aa6b9;
+  --section: #ffd0d0;
+  --accent: #ff9eaa;
+  --text: #092a3d;
 }
 
 body {

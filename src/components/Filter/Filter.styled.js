@@ -9,7 +9,7 @@ export const FilterLabel = styled.label`
 
   &:hover,
   &:focus {
-    color: white;
+    color: var(--accent);
   }
 `;
 
