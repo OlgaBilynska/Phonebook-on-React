@@ -1,14 +1,35 @@
 import styled from '@emotion/styled';
 
+export const FilterContainer = styled.div`
+  margin: 10px 0 20px;
+`;
+
 export const FilterLabel = styled.label`
   color: var(--section);
+
+  &:hover,
+  &:focus {
+    color: var(--accent);
+    /* text-shadow: 1px 1px 1px; */
+  }
 `;
 
 export const FilterInput = styled.input`
   display: block;
+  width: inherit;
+  margin: 0 auto;
+
   margin-top: 10px;
-  width: 100%;
   color: var(--text);
   font-weight: 600;
   outline: transparent;
+  border: var(--text);
+  border-radius: 20px;
+  padding: 10px 20px;
+
+  &:hover,
+  &:focus {
+    border: 2px solid var(--accent);
+    box-shadow: 1px 1px 1px var(--accent);
+  }
 `;

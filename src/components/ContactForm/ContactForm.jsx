@@ -3,10 +3,11 @@ import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
+// import { Button } from 'components/Button/Button';
 
 import {
   FormWrapper,
-  Button,
+  ButtonBigger,
   Label,
   ErrorMessageForm,
   FieldForm,
@@ -55,14 +56,13 @@ const ContactForm = ({ onSubmit }) => {
           <FieldForm
             name="name"
             id={inputNameId}
-            // onChange={this.handleChange}
             type="text"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
           <ErrorMessageForm name="name" component="div" />
         </Label>
-        <br />
+
         <Label htmlFor={inputNumberId}>
           Number
           <FieldForm
@@ -78,7 +78,7 @@ const ContactForm = ({ onSubmit }) => {
           <ErrorMessageForm name="number" component="div" />
         </Label>
 
-        <Button type="submit">Add contact</Button>
+        <ButtonBigger type="submit">Add contact</ButtonBigger>
       </FormWrapper>
     </Formik>
   );

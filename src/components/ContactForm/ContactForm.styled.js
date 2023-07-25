@@ -1,42 +1,57 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
+import { Button } from 'components/Button/Button';
 
-export const FormWrapper = styled(Form)``;
+export const FormWrapper = styled(Form)`
+  margin-top: 10px;
+`;
 
-export const Button = styled.button`
-  display: block;
-  margin: 20px auto;
-  background-color: var(--accent);
-  color: var(--text);
-  font-weight: 500;
+export const ButtonBigger = styled(Button)`
   font-size: 20px;
-  padding: 10px;
-  border: transparent;
-  border-radius: 30%;
-
-  &:hover {
-    background-color: var(--text);
-    color: var(--accent);
-  }
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const Label = styled.label`
   color: var(--section);
 
-  /* text-shadow: 1px 1px 1px var(--section); */
+  &:hover,
+  &:focus {
+    color: var(--accent);
+    /* text-shadow: 1px 1px 1px; */
+  }
 `;
 
 export const ErrorMessageForm = styled(ErrorMessage)`
   color: var(--accent);
   font-weight: 600;
   background-color: var(--section);
+  border-radius: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
 `;
 
 export const FieldForm = styled(Field)`
+  display: block;
+  width: inherit;
   margin-bottom: 10px;
   margin-top: 7px;
-  font-size: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 20px;
   color: var(--text);
-  outline: var(--accent);
   border: var(--text);
+
+  outline: transparent;
+  border-radius: 20px;
+  padding: 10px 20px;
+
+  &:hover,
+  &:focus {
+    border: 2px solid var(--accent);
+    box-shadow: 1px 1px 1px var(--accent);
+  }
 `;

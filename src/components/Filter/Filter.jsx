@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FilterLabel, FilterInput } from './Filter.styled';
+import { FilterLabel, FilterInput, FilterContainer } from './Filter.styled';
 
 const Filter = ({ value, onChange }) => {
   console.log('value', value);
   return (
-    <div>
+    <FilterContainer>
       <FilterLabel>
         Find contacts by name
         <FilterInput type="text" value={value} onChange={onChange} />
       </FilterLabel>
-    </div>
+    </FilterContainer>
   );
 };
 
