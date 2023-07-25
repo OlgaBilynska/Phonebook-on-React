@@ -4,6 +4,13 @@ import ContactForm from './ContactForm/ContactForm';
 import Contacts from './Contacts/Contacts';
 import Filter from './Filter/Filter';
 
+import {
+  Container,
+  PhonebookTitle,
+  ContactTitle,
+  ContactTotal,
+} from './App.styled';
+
 export class App extends React.Component {
   state = {
     contacts: [
@@ -26,41 +33,12 @@ export class App extends React.Component {
       this.setState(prevState => ({ contacts: [data, ...prevState.contacts] }));
     }
   };
-  // isContactExist = contactName => {
-  //   console.log('contactId', contactName);
-  //   if (this.state.contacts.find(contact => contact.name === contactName)) {
-  //     console.log('is already in contacts.');
-  //   } else {
-  //     this.formSubmitHandler();
-  //   }
-  // };
-
-  //   this.setState(prevState => ({
-  //     contacts: prevState.contacts.map(contact => {
-  //       console.log('contact.name :>> ', contact.name);
-  //       return (contact.name === contactName
-  //         ? console.log('is already in contacts.')
-  //         : contact);
-  //     }),
-  //   }));
-  // };
 
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
-
-  // formSubmitHandler = data => {
-  //   const contacts = this.state.contacts;
-  //   contacts.find(contact =>
-  //     contact.name === data.name
-  //       ? alert('is already in contacts.')
-  //       : this.setState(prevState => ({
-  //           contacts: [data, ...prevState.contacts],
-  //         }))
-  //   );
-  // };
 
   changeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
@@ -87,26 +65,21 @@ export class App extends React.Component {
     const { contacts, filter } = this.state;
 
     const contactCount = contacts.length;
-    // const completedContacts = this.countContacts();
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div>
-        <h1>Phonebook</h1>
-        <ContactForm
-          onSubmit={this.formSubmitHandler}
-          // onContactExist={this.isContactExist}
-        />
-        <h2>Contacts</h2>
+      <Container>
+        <PhonebookTitle>Phonebook</PhonebookTitle>
+        <ContactForm onSubmit={this.formSubmitHandler} />
+        <ContactTitle>Contacts</ContactTitle>
         <Filter value={filter} onChange={this.changeFilter} />
 
         <Contacts
           contactList={visibleContacts}
           onDeleteContact={this.deleteContact}
         />
-        <p>Number of contacts: {contactCount}</p>
-        {/* <p>Total contacts: {completedContacts}</p> */}
-      </div>
+        <ContactTotal>Number of contacts: {contactCount}</ContactTotal>
+      </Container>
     );
   }
 }
