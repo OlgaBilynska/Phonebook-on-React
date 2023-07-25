@@ -12,7 +12,7 @@ export const ContactContainer = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: inherit;
   background-color: var(--section);
   border: 1px solid var(--section);
   border-radius: 20px;

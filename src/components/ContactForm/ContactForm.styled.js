@@ -43,7 +43,7 @@ export const FieldForm = styled(Field)`
   font-size: 20px;
   color: var(--text);
   border: var(--text);
-
+  background-color: var(--section);
   outline: transparent;
   border-radius: 20px;
   padding: 10px 20px;

@@ -25,6 +25,7 @@ export const FilterInput = styled.input`
   border: var(--text);
   border-radius: 20px;
   padding: 10px 20px;
+  background-color: var(--section);
 
   &:hover,
   &:focus {
