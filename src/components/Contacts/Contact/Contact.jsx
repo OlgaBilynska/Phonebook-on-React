@@ -5,8 +5,8 @@ import { Button } from 'components/Button/Button';
 
 const Contact = ({ list, deleteContact }) => {
   return list.map(({ id, name, number }) => (
-    <ContactContainer>
-      <ContactItem key={id}>
+    <ContactContainer key={id}>
+      <ContactItem>
         {name} : {number}
       </ContactItem>
       <Button type="button" onClick={() => deleteContact(id)}>

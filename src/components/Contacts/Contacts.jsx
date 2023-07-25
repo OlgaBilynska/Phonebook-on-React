@@ -4,7 +4,6 @@ import Contact from './Contact/Contact';
 import { ContactList } from './Contacts.styled';
 
 const Contacts = ({ contactList, onDeleteContact }) => {
-  console.log('contact', contactList);
   return (
     <div>
       <ContactList>
