@@ -19,6 +19,7 @@ export const PhonebookTitle = styled.h2`
   border-radius: 20px;
   background-color: var(--section);
   color: var(--text);
+  min-width: fit-content;
 `;
 
 export const ContactTitle = styled.h2`
@@ -29,6 +30,7 @@ export const ContactTitle = styled.h2`
   border-radius: 20px;
   background-color: var(--section);
   color: var(--text);
+  min-width: fit-content;
 `;
 
 export const ContactTotal = styled.p`
