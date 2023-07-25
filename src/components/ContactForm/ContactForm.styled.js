@@ -50,7 +50,7 @@ export const FieldForm = styled(Field)`
 
   &:hover,
   &:focus {
-    border: 2px solid var(--accent);
+    outline: 2px solid var(--accent);
     box-shadow: 1px 1px 1px var(--accent);
   }
 `;

@@ -29,7 +29,7 @@ export const FilterInput = styled.input`
 
   &:hover,
   &:focus {
-    border: 2px solid var(--accent);
+    outline: 2px solid var(--accent);
     box-shadow: 1px 1px 1px var(--accent);
   }
 `;
