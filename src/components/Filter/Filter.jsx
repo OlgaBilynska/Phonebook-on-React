@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { FilterLabel, FilterInput, FilterContainer } from './Filter.styled';
 
 const Filter = ({ value, onChange }) => {
-  console.log('value', value);
   return (
     <FilterContainer>
       <FilterLabel>
