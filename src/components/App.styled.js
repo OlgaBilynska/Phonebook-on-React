@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   height: 100%;
   padding: 20px 450px;
-  /* background-color: var(--background); */
   background-image: linear-gradient(
     to bottom,
     var(--background),
