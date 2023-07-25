@@ -17,4 +17,5 @@ export const ContactContainer = styled.li`
   border: 1px solid var(--section);
   border-radius: 20px;
   padding: 10px 20px;
+  min-width: fit-content;
 `;
