@@ -9,6 +9,14 @@ export const Container = styled.div`
     var(--accent)
   );
   text-align: center;
+
+  @media screen and (min-width: 750px) {
+    padding: 20px 200px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 20px 450px;
+  }
 `;
 
 export const PhonebookTitle = styled.h2`
